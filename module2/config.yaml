@@ -1,0 +1,9 @@
+go_xyz_speed:
+  x: 2
+  y: 2
+  z: 2
+  speed: 5
+step2:
+  up: 1
+  down: 2
+  rotate: 12
