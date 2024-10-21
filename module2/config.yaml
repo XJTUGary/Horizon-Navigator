@@ -5,7 +5,9 @@ go_xyz_speed:
   speed: 5
 step2:
   100: up
+  2: sleep
   200: down
+  2.1: sleep
   180: rotate
   102: up
   202: down
