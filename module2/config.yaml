@@ -4,6 +4,9 @@ go_xyz_speed:
   z: 2
   speed: 5
 step2:
-  up: 1
-  down: 2
-  rotate: 12
+  100: up
+  200: down
+  180: rotate
+  102: up
+  202: down
+  182: rotate
