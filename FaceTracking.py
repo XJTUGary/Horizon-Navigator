@@ -15,7 +15,7 @@ print(me.get_battery())
 me.streamon()
 me.takeoff()
 me.send_rc_control(0, 0, 30, 0)
-time.sleep(2.2)
+time.sleep(3.5)
 
 w, h = 360, 240
 fbRange  = [4200, 4800]
@@ -77,9 +77,6 @@ def trackFace( info, w, pid, pError):
     me.send_rc_control(0, fb, 0, speed)
     return error
 
-
-#Run WebCam
-# cap = cv2.VideoCapture(0) #attach the webcam you want to use  0 stands for webcam for testing purposes
 
 while True:
     # _, img = cap.read() #get image
