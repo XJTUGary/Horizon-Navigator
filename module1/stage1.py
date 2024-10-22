@@ -5,7 +5,6 @@ import yaml
 
 
 
-
 def step1(tello, params):
     tello.move_up(params['up'])
     tello.move_forward(params['forward1'])
