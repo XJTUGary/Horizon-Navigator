@@ -3,9 +3,7 @@ from djitellopy import Tello
 import time
 import yaml
 
-# 读取配置文件
-with open("config.yaml", 'r') as file:
-    config = yaml.safe_load(file)
+
 
 
 def step1(tello, params):
@@ -16,9 +14,17 @@ def step1(tello, params):
 
 
 def step2(tello, params):
-    tello.move_down(params['down'])
     tello.move_forward(params['forward'])
-    tello.curve_xyz_speed(params['radius'], 0, 0, 0, params['radius'], 0, params['angle'], params['speed'])
+    tello.move_down(params['down'])
+
+    # tello.curve_xyz_speed(params['radius'], 0, 0, 0, params['radius'], 0, params['angle'], params['speed'])
+    tello.move_right(params['mid-side'])
+    tello.move_forward(params['side'])
+    tello.move_left(params['side'])
+    tello.move_back(params['side'])
+    tello.move_right(params['side'])
+    tello.move_forward(params['side'])
+    tello.move_left(params['mid-side'])
     tello.move_forward(60)
 
 
@@ -32,11 +38,14 @@ def step3(tello, params):
     tello.move_forward(params['side'])
 
 
-def main():
+def main(config):
     # 初始化无人机
     tello = Tello()
     tello.connect()
     print(f"Battery: {tello.get_battery()}%")
+    # 起飞
+    tello.takeoff()
+    # time.sleep(0.5)
     step1_params = config['step1']
     step1(tello, step1_params)
 
@@ -46,12 +55,14 @@ def main():
     step3_params = config['step3']
     step3(tello, step3_params)
 
-    # 起飞
-    tello.takeoff()
-    time.sleep(2)
+
 
     # 着陆
     tello.land()
 
 
-main()
+if __name__ == "__main__":
+    # 读取配置文件
+    with open("config.yaml", 'r') as file:
+        config = yaml.safe_load(file)
+    main(config)

@@ -1,14 +1,16 @@
 step1:
-  up:150
-  forward1:130
-  forward2:100
+  up: 60
+  forward1: 150
+  forward2: 100
 step2:
-  down:40
-  forward:125
-  radius:100
-  angle:540
-  speed:20
+  down: 40
+  forward: 125
+  radius: 100
+  angle: 540
+  speed: 20
+  mid-side: 50
+  side: 100
 step3:
-  forward:150
-  mid-up:50
-  side:110
+  forward: 150
+  mid-up: 50
+  side: 110
